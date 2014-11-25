@@ -13,8 +13,6 @@ int servo_position;
 Servo sensor_servo;
 
 
-
-
 void setup_servo(){
  
   sensor_servo.attach(CTRL);
@@ -58,4 +56,3 @@ void servo_zero(){
 void servo_max(){
   sensor_servo.write(SERVO_MAX);
 }
-

@@ -1,5 +1,6 @@
 //UILLI CODE @ Isaac Team
 
+
 //Possible directions
 enum directions{
   up,
@@ -40,25 +41,39 @@ void loop() {
                   motion(stp, v);
 		switch (c)  {
 			case 'w' :
-                               // if(read_sensor()>25)
-				    motion(up, v); 
+        servo_center();
+          if(read_sensor()>30)
+            motion(stp, v);
+				  motion(up, v); 
 				break;
+
 			case 'a' :
-                                
-    				motion(left, v);
+        servo_zero();
+        if(read_sensor()>30)
+            motion(stp, v);
+        servo_center();
+    		motion(left, v);
 				break;
-			case 'd' :
-                               
-          			motion(right, v);
+			
+      case 'd' :
+        servo_max();
+        if(read_sensor()>30)
+            motion(stp, v);
+        servo_center();
+        motion(right, v);
 				break;
-			case 's':
-				motion(down, v);
+			
+      case 's':
+        Serial.print("move and pray XD\n\r");
+        motion(down, v);
 				break;
+
 			case 'v' :  
-                                Serial.write(':');
+        Serial.write('\r\n insert V [0 - 9 ]:');
 				while(!Serial.available());
 				v = (int)Serial.read();
 				break;
+
 			case 'r':
                                 c=(char)48+v;
 				Serial.write(c);
