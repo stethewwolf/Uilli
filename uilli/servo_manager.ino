@@ -2,7 +2,8 @@
 
 #include <Servo.h>
 
-#define CTRL A0
+#define CTRL 10
+#define SVCC A0
 #define SERVO_MIN 0
 #define SERVO_AVG 70
 #define SERVO_MAX 150
@@ -15,11 +16,14 @@ Servo sensor_servo;
 
 void setup_servo(){
  
+  pinMode(SVCC,OUTPUT);
+  digitalWrite(SVCC,HIGH);
+  
   sensor_servo.attach(CTRL);
-
+  
   servo_position = START_POS;
 
-  sensor_servo.write(servo_position);  
+  sensor_servo.write(servo_position);    
 }
 
 //Return servo to start position
@@ -55,4 +59,12 @@ void servo_zero(){
 
 void servo_max(){
   sensor_servo.write(SERVO_MAX);
+}
+
+void servo_mid_left(){
+  sensor_servo.write(SERVO_AVG/2);
+}
+
+void servo_mid_right(){
+  sensor_servo.write(SERVO_AVG*1.5);
 }
