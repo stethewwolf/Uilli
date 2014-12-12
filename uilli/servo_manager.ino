@@ -62,9 +62,9 @@ void servo_max(){
 }
 
 void servo_mid_left(){
-  sensor_servo.write(SERVO_AVG/2);
+  sensor_servo.write(SERVO_AVG*1.5);
 }
 
 void servo_mid_right(){
-  sensor_servo.write(SERVO_AVG*1.5);
+  sensor_servo.write(SERVO_AVG/2);
 }

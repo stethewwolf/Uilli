@@ -75,6 +75,7 @@ void loop() {
         Serial.write('\r\n insert V [0 - 9 ]:');
 	while(!Serial.available());
 	v = (int)Serial.read();
+        Serial.write(v);
 	break;
 
       case 'r':

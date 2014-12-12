@@ -31,7 +31,7 @@ void motion(int dir, int power)
         
         switch(dir){
           case up: //go forward
-            dutysx=map(power,0,9,0,230);
+            dutysx=map(power,0,9,0,200);
             digitalWrite(SXUP, HIGH);
             digitalWrite(SXDOWN, LOW);
             digitalWrite(DXUP, LOW);
@@ -40,8 +40,8 @@ void motion(int dir, int power)
             analogWrite(MSX, dutysx);
             break;
             
-          case down: //go backwards
-            dutysx=map(power,0,9,0,240);
+          case down: //go backward
+            dutysx=map(power,0,9,0,220);
             digitalWrite(SXUP, LOW);
             digitalWrite(SXDOWN, HIGH);
             digitalWrite(DXUP, HIGH);
@@ -57,7 +57,7 @@ void motion(int dir, int power)
             digitalWrite(DXUP, LOW);
             digitalWrite(DXDOWN, HIGH);
             analogWrite(MDX, dutydx);
-            analogWrite(MSX, dutydx/2);
+            analogWrite(MSX, dutydx/5);
             break;
             
           case right: //turn right
